@@ -3,10 +3,10 @@ import {ref} from 'vue';
 export const useWebInfoStore = defineStore('webInfo', ()=>{
 
     const webInfo = ref({
-        name:"Click-counter", //It used to be written name: "something-else" doesn't change when new is written in
-        url: "icollege.gsu.edu"
+        name:"Home Page", //It used to be written name: "something-else" doesn't change when new is written in
+        url: "sorenswebsite.com"
     });
-    const usersNum = ref(1000);
+    const usersNum = ref(0);
     const username = ref("");
     const newUser = ref("");
     const userAdd = ()=> {
@@ -17,12 +17,23 @@ export const useWebInfoStore = defineStore('webInfo', ()=>{
         if (newUser.value.trim())
             username.value = newUser.value;
     };
+
+    const resetStore = () => {
+        webInfo.value = {
+            name: "Home Page",
+            url: "sorenswebsite.com"
+        };
+        usersNum.value = 0;
+        username.value = "";
+        newUser.value= "";
+    }
     return {
         webInfo,
         usersNum,
         username,
         newUser,
         userAdd,
-        updateUserName
+        updateUserName,
+        resetStore
     };
 },{persist:true});

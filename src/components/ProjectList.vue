@@ -6,6 +6,7 @@
         <p>Projects Completed: {{ finishedProjects }}</p>
         <h3 v-show="filteredProjects.length === 0">No Projects, please add a new one.</h3>
     </div>
+    
     <CategoryFilter 
       :categories="categories"
       :cFilter="cFilter"
