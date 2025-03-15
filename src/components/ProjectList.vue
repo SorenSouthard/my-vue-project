@@ -1,20 +1,16 @@
 <template>
     <div class="Projects info">
-        <h3 v-show="projects.length === 0">No Projects listed, please add to list.</h3>
         <h3>{{ cFilter }} Projects</h3>
         <p>Projects: {{ totalProjects }}</p>
         <p>Projects Incomplete: {{ unfinishedProjects }}</p>
         <p>Projects Completed: {{ finishedProjects }}</p>
+        <h3 v-show="filteredProjects.length === 0">No Projects, please add a new one.</h3>
     </div>
-    <div class="category-filter">
-        <button 
-            v-for="category in categories"
-            :key="category"
-            @click="setFilter(category)"
-        > 
-            {{category}} 
-        </button>
-    </div>
+    <CategoryFilter 
+      :categories="categories"
+      :cFilter="cFilter"
+      @update:cFilter="cFilter = $event"
+    />
 
     <select v-model="newCategory">
         <option v-for="category in categories" :key="category"> {{ category }}</option>
@@ -24,18 +20,21 @@
     <button @click="addProject">Add Project</button>
     
     <ul>
-        <li v-for= "project in filteredProjects"
-        :key = "project.id"
-        :project = "project"
-        :style="{textDecoration: project.checked ? 'line-through' : 'none'}"
-        @click="toggleChecked(project)"> {{ cFilter !== project.category ? "[" + project.category + "]" : "" }} {{ project.text }}
-        <button @click="deleteProject(project.id)">X</button>
-        </li>
+        <ProjectItem
+            v-for="project in filteredProjects"
+            :key="project.id"
+            :project="project"
+            :cFilter="cFilter"
+            @toggleProject="toggleProject"
+            @deleteProject="deleteProject"
+        />
     </ul>
 </template>
 
 <script setup>
     import { ref, computed, watch, onMounted } from 'vue';
+    import CategoryFilter from './CategoryFilter.vue';
+    import ProjectItem from './ProjectItem.vue';
 
     const cFilter = ref("All")
     const newProject = ref("")
@@ -87,12 +86,12 @@
 
         }
     });
-
+/* 
     const setFilter = (category) => {
         cFilter.value = category
-    };
+    }; */
 
-    const toggleChecked = (project) => {
+    const toggleProject = (project) => {
         project.checked = !project.checked;
     };
 
