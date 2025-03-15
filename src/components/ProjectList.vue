@@ -1,12 +1,9 @@
 <template>
-    <div class="Projects info">
-        <h3>{{ cFilter }} Projects</h3>
-        <p>Projects: {{ totalProjects }}</p>
-        <p>Projects Incomplete: {{ unfinishedProjects }}</p>
-        <p>Projects Completed: {{ finishedProjects }}</p>
-        <h3 v-show="filteredProjects.length === 0">No Projects, please add a new one.</h3>
-    </div>
-    
+    <h1>Project List</h1>
+    <div class="projectContainer">
+
+    <div class="pList">
+    <h2>Projects</h2>
     <CategoryFilter 
       :categories="categories"
       :cFilter="cFilter"
@@ -30,6 +27,15 @@
             @deleteProject="deleteProject"
         />
     </ul>
+    <h3 v-show="filteredProjects.length === 0">No Projects, please add a new one.</h3>
+    </div>
+    <div class="projectsInfo">
+        <h2>{{ cFilter }} Projects</h2>
+        <p>Projects: {{ totalProjects }}</p>
+        <p>Projects Incomplete: {{ unfinishedProjects }}</p>
+        <p>Projects Completed: {{ finishedProjects }}</p>
+    </div>
+    </div>
 </template>
 
 <script setup>
@@ -106,5 +112,65 @@
 </script>
 
 <style scoped>
+h1 {
+    margin-bottom: 15px;
+}
 
+.projectContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 100px;
+    height: 80vh;
+}
+
+.projectsInfo{
+    flex: 1;
+    min-width: 50%;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.pList{
+    flex: 1;
+    text-align: center;
+    margin: 10px;
+    margin-bottom: -10px;
+    max-height: 65vh;
+    min-width: 60%;
+    overflow-y: auto;
+    border: 1px solid black;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    border-radius: 5px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-top: 5px;
+    padding: 5px 0px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #f9f9f9;
+}
+select {
+    height: 30px;
+}
+
+input {
+    display: block; 
+    margin-bottom: 10px; 
+    padding: 5px; 
+    width: 96%; 
+    margin: 5px 0; 
+    max-width: 400px; 
+    border-radius: 5px;
+}
 </style>

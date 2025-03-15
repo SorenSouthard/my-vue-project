@@ -1,5 +1,4 @@
 <template>
-    <div class="category-filter">
         <n-button 
             v-for="category in categories"
             :key="category"
@@ -8,7 +7,6 @@
         > 
             {{category}} 
         </n-button>
-    </div>
 </template>
 
 <script setup>

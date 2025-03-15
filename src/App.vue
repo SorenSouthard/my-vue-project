@@ -20,7 +20,7 @@
 
 <style scoped>
 nav {
-    position: absolute;
+    position:fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -29,6 +29,9 @@ nav {
     gap: 15px;
     margin: 0;
     padding: 10px 0;
+    background: white;
+    border: 1px solid black;
+    z-index: 1000;
 }
 router-link {
     text-decoration: none;
