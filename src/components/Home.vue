@@ -5,7 +5,11 @@
             <div class="pageTop">
                 <h1>{{ webInfoStore.webInfo.name }}</h1>
                 Url: {{ webInfoStore.webInfo.url }}
-                <h2 v-if="webInfoStore.usersNum === 0 && !webInfoStore.username.trim()"> Welcome!!! Use the navigation bar on top to navigate to different pages, or stay on homepage where you can update username or click! </h2>
+                <h2 v-if="webInfoStore.usersNum === 0 && !webInfoStore.username.trim()"> 
+                    Welcome!!! I'm Soren Southard, creator of this website. Use the navigation 
+                    bar on top to navigate to different pages, or stay on the homepage where you 
+                    can update username or click! 
+                </h2>
             </div>
             <div>
                 <input v-model="webInfoStore.newUser" placeholder="Enter username..." type="text">
@@ -49,6 +53,9 @@
 h1 {
     margin-bottom: 10px;
 }
+
+/* This part of the code and other parts using it were in part taken 
+from "https://www.w3schools.com/howto/howto_css_split_screen.asp" */
 .split {
     height: 100%;
     width: 50%;

@@ -27,7 +27,7 @@
             @deleteProject="deleteProject"
         />
     </ul>
-    <h3 v-show="filteredProjects.length === 0">No Projects, please add a new one.</h3>
+    <h3 v-if="filteredProjects.length === 0">No Projects, please add a new one.</h3>
     </div>
     <div class="projectsInfo">
         <h2>{{ cFilter }} Projects</h2>
@@ -93,10 +93,7 @@
 
         }
     });
-/* 
-    const setFilter = (category) => {
-        cFilter.value = category
-    }; */
+
 
     const toggleProject = (project) => {
         project.checked = !project.checked;
