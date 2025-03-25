@@ -3,8 +3,7 @@ import {ref} from 'vue';
 export const useWebInfoStore = defineStore('webInfo', ()=>{
 
     const webInfo = ref({
-        name:"Home Page", //It used to be written name: "something-else" doesn't change when new is written in
-        url: "sorenswebsite.com"
+        name:"Home Page", 
     });
     const usersNum = ref(0);
     const username = ref("");

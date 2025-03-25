@@ -6,11 +6,11 @@ Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://
 
 
 //README start
-The following project is a website showcasing various functionalities from vue, pinia, naive-ui and pinia. The website is designed to have three pages, accessible through a navigation links at the top of the page. Each page shows different functionalities. 
+The following project is a website showcasing various functionalities from vue, vue-router, naive-ui and pinia. The website is designed to have three pages, accessible through a navigation links at the top of the page. Each page shows different functionalities. 
 
 The homepage showcase localstorage with clicker and username functions that save their values even upon refreshing. The project list showcases various vue functionalities such as v-for, computed and watch for deriving data and tracking changes, and many others that allow for the dynamic creation of a project list that can be freely be expanded.
 
-Finally, there is a contact section that was made to showcase the utility of v-model, which allows for the two way binding, enabling the creation of inputs that can be used to save contact details for those who have queries for the cite.
+Finally, there is a contact section that was made to showcase the utility of v-model, which allows for the two way binding, enabling the creation of inputs that can be used to save contact details for those who have queries for the site.
 
 Instructions:
 The code uses pinia, vue, vue router, and naive-ui
