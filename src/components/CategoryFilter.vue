@@ -1,4 +1,5 @@
 <template>
+    <!-- Creates buttons using v-for with the categories, has a function that updates filter upon clicking button-->
         <n-button 
             v-for="category in categories"
             :key="category"

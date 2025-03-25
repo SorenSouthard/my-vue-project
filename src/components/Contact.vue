@@ -3,6 +3,7 @@
     <h1>Contact Page</h1>
     <div class="inputs">
         <label>Enter Email:</label>
+<!-- Uses v-model for two way binding, inputs are updated using Submit button -->
         <input
             v-model="store.email"
             :options="store.emailSuggest"
@@ -12,7 +13,11 @@
         <textarea v-model="store.query" placeholder="Enter text query..." type="text"></textarea>
     </div>
     <n-button @click="store.submitContact" type="default">Submit</n-button>
+
+<!-- reset button to clear queries -->
     <n-button @click="store.resetQueries" type="error">Reset</n-button>
+
+<!-- Stores submission in list of dictionary with email and queries -->
     <div v-if="store.submissions.length > 0">
         <h2>Submitted Queries:</h2>
         <ul>
@@ -27,11 +32,12 @@
 
 <script setup>
     import { useContactStore } from '../stores/contactStore';
-    import { ref, computed, watch, onMounted } from 'vue';
     import { NButton, NAutoComplete } from 'naive-ui';
 
+// uses contact store as store for state management, both functions and values are saved in contactStore.js 
     const store = useContactStore();
-/* 
+
+    /* Old code before pinia
     const email = ref("");
     const query = ref("");
     const submissions = ref([]);

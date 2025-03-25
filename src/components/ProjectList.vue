@@ -4,19 +4,22 @@
 
     <div class="pList">
     <h2>Projects</h2>
+    <!-- Calls Category filter to create buttons that has a function that updates cFilter upon clicking button -->
     <CategoryFilter 
       :categories="store.categories"
       :cFilter="store.cFilter"
       @update:cFilter="store.cFilter = $event"
     />
 
+    <!-- Uses a select that acts as an input with v-model, new category is taken whenever a new project is made. -->
     <select v-model="store.newCategory">
         <option v-for="category in store.categories" :key="category"> {{ category }} </option>
     </select>
-
+    <!-- Calls new project using text from newProject for text -->
     <input v-model="store.newProject" placeholder="Write Projects...">
     <button @click="store.addProject">Add Project</button>
     
+    <!-- Creates list components  -->
     <ul>
         <ProjectItem
             v-for="project in store.filteredProjects"
@@ -29,6 +32,8 @@
     </ul>
     <h3 v-if="store.filteredProjects.length === 0">No Projects, please add a new one.</h3>
     </div>
+
+    <!-- Stats about categorized projects saved using pinia state management. -->
     <div class="projectsInfo">
         <h2>{{ store.cFilter }} Projects</h2>
         <p>Projects: {{ store.totalProjects }}</p>
@@ -43,6 +48,7 @@
     import CategoryFilter from './CategoryFilter.vue';
     import ProjectItem from './ProjectItem.vue';
 
+// Pinia state management with functions in comments below. 
     const store = useProjectStore();
 
 

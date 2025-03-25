@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 import {ref, computed} from "vue";
 
 export const useProjectStore = defineStore('projectStore', () => {
-    
+    // default values that allow for reactive state management.
     const cFilter = ref("All")
     const newProject = ref("")
     const newCategory = ref("All")
@@ -13,6 +13,7 @@ export const useProjectStore = defineStore('projectStore', () => {
         {id:3, text:"Make Breakfast", category: "All", checked:false}
     ]);
 
+// if there is a value in newProjects than a new value is pushed onto the projects list with given values.
     const addProject = ()=> {
         if (newProject.value.trim()) {
             projects.value.push({

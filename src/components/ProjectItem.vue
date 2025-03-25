@@ -1,4 +1,5 @@
 <template>
+    <!-- makes list component with delete and toggle being emitted back to parent functions. -->
     <li
         :style="{textDecoration: project.checked ? 'line-through' : 'none'}"
         @click="toggleProject(project)"
