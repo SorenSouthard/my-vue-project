@@ -4,19 +4,19 @@
     <div class="inputs">
         <label>Enter Email:</label>
         <input
-            v-model="email"
-            :options="emailSuggest"
+            v-model="store.email"
+            :options="store.emailSuggest"
             placeholder="Enter Email"
         />
         <label>Enter Query: </label>
-        <textarea v-model="query" placeholder="Enter text query..." type="text"></textarea>
+        <textarea v-model="store.query" placeholder="Enter text query..." type="text"></textarea>
     </div>
-    <n-button @click="submitContact" type="default">Submit</n-button>
-    <n-button @click="resetQueries" type="error">Reset</n-button>
-    <div v-if="submissions.length > 0">
+    <n-button @click="store.submitContact" type="default">Submit</n-button>
+    <n-button @click="store.resetQueries" type="error">Reset</n-button>
+    <div v-if="store.submissions.length > 0">
         <h2>Submitted Queries:</h2>
         <ul>
-            <li v-for="(submission, index) in submissions" :key="index">
+            <li v-for="(submission, index) in store.submissions" :key="index">
                 <strong>Email: </strong>{{ submission.email }}  <br>
                 <strong>Query: </strong>{{ submission.query }}
             </li>
@@ -26,14 +26,18 @@
 </template>
 
 <script setup>
+    import { useContactStore } from '../stores/contactStore';
     import { ref, computed, watch, onMounted } from 'vue';
     import { NButton, NAutoComplete } from 'naive-ui';
+
+    const store = useContactStore();
+/* 
     const email = ref("");
     const query = ref("");
     const submissions = ref([]);
     const emailSuggest = ref([]);
 
-/*     
+ 
     naive-ui nautocomplete input broke for seemingly no reason and didn't retrieve email
         const updateEmailSuggestion = (value) => {
     console.log(value);
@@ -42,7 +46,7 @@
         } else {
             emailSuggest.value = [];
         }
-    }; */
+    };
 
     watch(email, (newValue) => {
         if (newValue && !newValue.includes("@")) {
@@ -82,7 +86,7 @@
         submissions.value = [];
         localStorage.removeItem('submissions');
     };
-
+ */
 </script>
 
 <style scoped>

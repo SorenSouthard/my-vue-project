@@ -18,10 +18,11 @@
         cFilter:String
     });
 
-    const emit = defineEmits(["update:cFilter"])
+    const emit = defineEmits(["update:cFilter"]);
+
     const setFilter = (category) => {
-        emit("update:cFilter", category)
-    }
+        emit("update:cFilter", category);
+    };
 </script>
 
 <style scoped>

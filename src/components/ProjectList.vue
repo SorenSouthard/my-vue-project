@@ -5,45 +5,49 @@
     <div class="pList">
     <h2>Projects</h2>
     <CategoryFilter 
-      :categories="categories"
-      :cFilter="cFilter"
-      @update:cFilter="cFilter = $event"
+      :categories="store.categories"
+      :cFilter="store.cFilter"
+      @update:cFilter="store.cFilter = $event"
     />
 
-    <select v-model="newCategory">
-        <option v-for="category in categories" :key="category"> {{ category }}</option>
+    <select v-model="store.newCategory">
+        <option v-for="category in store.categories" :key="category"> {{ category }} </option>
     </select>
 
-    <input v-model="newProject" placeholder="Write Projects...">
-    <button @click="addProject">Add Project</button>
+    <input v-model="store.newProject" placeholder="Write Projects...">
+    <button @click="store.addProject">Add Project</button>
     
     <ul>
         <ProjectItem
-            v-for="project in filteredProjects"
+            v-for="project in store.filteredProjects"
             :key="project.id"
             :project="project"
-            :cFilter="cFilter"
-            @toggleProject="toggleProject"
-            @deleteProject="deleteProject"
+            :cFilter="store.cFilter"
+            @toggleProject="store.toggleProject"
+            @deleteProject="store.deleteProject"
         />
     </ul>
-    <h3 v-if="filteredProjects.length === 0">No Projects, please add a new one.</h3>
+    <h3 v-if="store.filteredProjects.length === 0">No Projects, please add a new one.</h3>
     </div>
     <div class="projectsInfo">
-        <h2>{{ cFilter }} Projects</h2>
-        <p>Projects: {{ totalProjects }}</p>
-        <p>Projects Incomplete: {{ unfinishedProjects }}</p>
-        <p>Projects Completed: {{ finishedProjects }}</p>
+        <h2>{{ store.cFilter }} Projects</h2>
+        <p>Projects: {{ store.totalProjects }}</p>
+        <p>Projects Incomplete: {{ store.unfinishedProjects }}</p>
+        <p>Projects Completed: {{ store.finishedProjects }}</p>
     </div>
     </div>
 </template>
 
 <script setup>
-    import { ref, computed, watch, onMounted } from 'vue';
+    import { useProjectStore } from "../stores/projectStore.js";
     import CategoryFilter from './CategoryFilter.vue';
     import ProjectItem from './ProjectItem.vue';
 
-    const cFilter = ref("All")
+    const store = useProjectStore();
+
+
+
+/*     const cFilter = ref("All")
     const newProject = ref("")
     const newCategory = ref("All")
     const categories = ref(["All", "Personal", "Work/School"]);
@@ -104,7 +108,7 @@
     const unfinishedProjects = computed(()=> totalProjects.value - finishedProjects.value);
 
     
-
+ */
 
 </script>
 

@@ -21,6 +21,7 @@ This is done by going into the project directory, "cd project" and then applying
 -npm install naive-ui
 -npm install vue-router
 -npm install pinia
+-npm install pinia-plugin-persistedstate
 
 Then use npm run dev in order to run the program and gain access to a local host to host it. 
 
@@ -28,6 +29,6 @@ Challenges:
 Some challenges I had faced during the coding of this project was in large part the creation of the css. The style of the project for viewing often meant completely changing around the various parts of the code and refashioning them so that they look presentable while also maintaining the functionality of the cite. 
 In large part this was trial and error, and required some usage of ai in order to learn about the large assortment of potential tags that would enable various aesthetic decisions.
 
-Another challange I had faced was of course simply making functional code. I did try to go through thing without without reference as much as possible. That said, in class resource were used more than I had originally hoped in order to complete the project. I did do somethings subtly different, and did add some additional functionality like category tags dissapearing when you click on a filter of the same type. But I did feel like much of the project was retreading the in class material.
+Another challange I had faced was of course simply making functional code. I did try to go through things without without reference as much as possible. That said, in class resource were used more than I had originally hoped in order to complete the project. I did do somethings subtly different, and did add some additional functionality, like category tags dissapearing when you click on a filter of the same type. But I did feel like much of the project was retreading the in class material.
 
 

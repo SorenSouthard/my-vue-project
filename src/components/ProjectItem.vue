@@ -3,7 +3,8 @@
         :style="{textDecoration: project.checked ? 'line-through' : 'none'}"
         @click="toggleProject(project)"
     > 
-    {{ cFilter !== project.category ? "[" + project.category + "]" : "" }} {{ project.text }}
+    {{ cFilter !== project.category ? "[" + project.category + "]" : "" }} 
+    {{ project.text }}
     <button @click="deleteProject(project.id)">X</button>
 
     </li>
